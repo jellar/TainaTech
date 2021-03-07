@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{067B1F12-08C5-4D97-91A4-570765617183}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7E9D8F2D-CE29-4CDF-B3E1-C865DE75BFDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1F68DC5B-15A6-4627-A1C1-59CF454EF1EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{70AEC783-5EA4-427C-9CE1-211D1E285330}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{BDAFFB96-382D-472E-BD74-94A23FD2789C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Domain", "TainaTech.Domain\TainaTech.Domain.csproj", "{622C9C12-88CE-42E6-88A8-50A79F4AB3F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Application", "TainaTech.Application\TainaTech.Application.csproj", "{2478B8A4-48AE-49AC-A5E9-5796A7B09914}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{622C9C12-88CE-42E6-88A8-50A79F4AB3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622C9C12-88CE-42E6-88A8-50A79F4AB3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{622C9C12-88CE-42E6-88A8-50A79F4AB3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622C9C12-88CE-42E6-88A8-50A79F4AB3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2478B8A4-48AE-49AC-A5E9-5796A7B09914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2478B8A4-48AE-49AC-A5E9-5796A7B09914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2478B8A4-48AE-49AC-A5E9-5796A7B09914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2478B8A4-48AE-49AC-A5E9-5796A7B09914}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1F68DC5B-15A6-4627-A1C1-59CF454EF1EB} = {067B1F12-08C5-4D97-91A4-570765617183}
+		{70AEC783-5EA4-427C-9CE1-211D1E285330} = {067B1F12-08C5-4D97-91A4-570765617183}
+		{BDAFFB96-382D-472E-BD74-94A23FD2789C} = {067B1F12-08C5-4D97-91A4-570765617183}
+		{622C9C12-88CE-42E6-88A8-50A79F4AB3F8} = {1F68DC5B-15A6-4627-A1C1-59CF454EF1EB}
+		{2478B8A4-48AE-49AC-A5E9-5796A7B09914} = {1F68DC5B-15A6-4627-A1C1-59CF454EF1EB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F91A34F-65C9-4F2C-90E8-10F79A22581A}
+	EndGlobalSection
+EndGlobal
