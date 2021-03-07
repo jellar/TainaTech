@@ -19,7 +19,7 @@ namespace TainaTech.Application.Features.Persons.Queries.GetPersonsList
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<Person> _personRepository;
         private readonly ILogger<GetPersonListQueryHandler> _logger;
-        private readonly ICachedPersonsService _cachedPersonsService;
+        private readonly ICachedPersonsService _cachedPersonsService;        
 
         public GetPersonListQueryHandler(IMapper mapper, IAsyncRepository<Person> personRepository,
             ILogger<GetPersonListQueryHandler> logger, ICachedPersonsService cachedPersonsService)
@@ -34,7 +34,7 @@ namespace TainaTech.Application.Features.Persons.Queries.GetPersonsList
             _logger.LogInformation("Get person list requested");
 
             var cachedPersons = _cachedPersonsService.GetCachedPersons();
-            if (cachedPersons != null)
+            if (cachedPersons != null && cachedPersons.Any())
             {
                 return _mapper.Map<List<PersonListVm>>(cachedPersons);
             }

@@ -17,6 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Domain", "TainaTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Application", "TainaTech.Application\TainaTech.Application.csproj", "{2478B8A4-48AE-49AC-A5E9-5796A7B09914}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Persistance", "TainaTech.Persistance\TainaTech.Persistance.csproj", "{0E1BEF62-DB40-4D30-8014-CEDCF63618D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Application.UnitTests", "TainaTech.Application.UnitTests\TainaTech.Application.UnitTests.csproj", "{232BEB76-D359-4DEB-A234-2817AAEB050A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Persistance.IntegrationTests", "TainaTech.Persistance.IntegrationTests\TainaTech.Persistance.IntegrationTests.csproj", "{AB8097B0-FC9E-4646-AC92-9CE3A62B5281}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Api", "TainaTech.Api\TainaTech.Api.csproj", "{A60A2CB6-CF84-4E9C-A7F4-2C63BB5291CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +39,22 @@ Global
 		{2478B8A4-48AE-49AC-A5E9-5796A7B09914}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2478B8A4-48AE-49AC-A5E9-5796A7B09914}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2478B8A4-48AE-49AC-A5E9-5796A7B09914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E1BEF62-DB40-4D30-8014-CEDCF63618D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1BEF62-DB40-4D30-8014-CEDCF63618D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1BEF62-DB40-4D30-8014-CEDCF63618D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1BEF62-DB40-4D30-8014-CEDCF63618D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{232BEB76-D359-4DEB-A234-2817AAEB050A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{232BEB76-D359-4DEB-A234-2817AAEB050A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{232BEB76-D359-4DEB-A234-2817AAEB050A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{232BEB76-D359-4DEB-A234-2817AAEB050A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8097B0-FC9E-4646-AC92-9CE3A62B5281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8097B0-FC9E-4646-AC92-9CE3A62B5281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8097B0-FC9E-4646-AC92-9CE3A62B5281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8097B0-FC9E-4646-AC92-9CE3A62B5281}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A60A2CB6-CF84-4E9C-A7F4-2C63BB5291CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A60A2CB6-CF84-4E9C-A7F4-2C63BB5291CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A60A2CB6-CF84-4E9C-A7F4-2C63BB5291CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A60A2CB6-CF84-4E9C-A7F4-2C63BB5291CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +65,10 @@ Global
 		{BDAFFB96-382D-472E-BD74-94A23FD2789C} = {067B1F12-08C5-4D97-91A4-570765617183}
 		{622C9C12-88CE-42E6-88A8-50A79F4AB3F8} = {1F68DC5B-15A6-4627-A1C1-59CF454EF1EB}
 		{2478B8A4-48AE-49AC-A5E9-5796A7B09914} = {1F68DC5B-15A6-4627-A1C1-59CF454EF1EB}
+		{0E1BEF62-DB40-4D30-8014-CEDCF63618D8} = {70AEC783-5EA4-427C-9CE1-211D1E285330}
+		{232BEB76-D359-4DEB-A234-2817AAEB050A} = {7E9D8F2D-CE29-4CDF-B3E1-C865DE75BFDD}
+		{AB8097B0-FC9E-4646-AC92-9CE3A62B5281} = {7E9D8F2D-CE29-4CDF-B3E1-C865DE75BFDD}
+		{A60A2CB6-CF84-4E9C-A7F4-2C63BB5291CB} = {BDAFFB96-382D-472E-BD74-94A23FD2789C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F91A34F-65C9-4F2C-90E8-10F79A22581A}
