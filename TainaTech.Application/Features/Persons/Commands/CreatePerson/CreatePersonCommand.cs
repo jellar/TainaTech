@@ -1,12 +1,11 @@
-﻿using System;
-using TainaTech.Domain.Common;
+﻿using MediatR;
+using System;
 using TainaTech.Domain.Enums;
 
-namespace TainaTech.Domain.Entities
+namespace TainaTech.Application.Features.Persons.Commands.CreatePerson
 {
-    public class Person : AuditableEntity
+    public class CreatePersonCommand : IRequest<CreatePersonCommandResponse>
     {
-        public int PersonId { get; set; }
         public string Firstname { get; set; }
         public string Surname { get; set; }
         public Gender Gender { get; set; }

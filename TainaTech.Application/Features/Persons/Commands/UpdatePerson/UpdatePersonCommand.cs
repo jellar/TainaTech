@@ -1,10 +1,10 @@
-﻿using System;
-using TainaTech.Domain.Common;
+﻿using MediatR;
+using System;
 using TainaTech.Domain.Enums;
 
-namespace TainaTech.Domain.Entities
+namespace TainaTech.Application.Features.Persons.Commands.UpdatePerson
 {
-    public class Person : AuditableEntity
+    public class UpdatePersonCommand : IRequest
     {
         public int PersonId { get; set; }
         public string Firstname { get; set; }
