@@ -9,7 +9,7 @@ namespace TainaTech.Persistance.Configurations
         public void Configure(EntityTypeBuilder<Person> builder)
         {
             builder.Property(p => p.PersonId)
-                .HasColumnName("bigint");
+                .HasColumnType("bigint");
 
             builder.Property(p => p.Firstname)
                 .IsRequired()
@@ -18,7 +18,7 @@ namespace TainaTech.Persistance.Configurations
             builder.Property(p => p.Surname)
                 .IsRequired()
                 .HasMaxLength(50)
-                .HasColumnName("varbinary");
+                .HasColumnType("varbinary");
 
             builder.Property(p => p.Gender)
                 .IsRequired();
