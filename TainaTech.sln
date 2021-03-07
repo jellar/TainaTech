@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Persistance", "Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Application.UnitTests", "TainaTech.Application.UnitTests\TainaTech.Application.UnitTests.csproj", "{232BEB76-D359-4DEB-A234-2817AAEB050A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Persistance.IntegrationTests", "TainaTech.Persistance.IntegrationTests\TainaTech.Persistance.IntegrationTests.csproj", "{AB8097B0-FC9E-4646-AC92-9CE3A62B5281}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Persistance.UnitTests", "TainaTech.Persistance.IntegrationTests\TainaTech.Persistance.UnitTests.csproj", "{AB8097B0-FC9E-4646-AC92-9CE3A62B5281}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TainaTech.Api", "TainaTech.Api\TainaTech.Api.csproj", "{A60A2CB6-CF84-4E9C-A7F4-2C63BB5291CB}"
 EndProject

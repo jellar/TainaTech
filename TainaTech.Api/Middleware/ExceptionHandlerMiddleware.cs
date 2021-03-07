@@ -48,10 +48,7 @@ namespace TainaTech.Api.Middleware
                     break;
                 case NotFoundException notFoundException:
                     httpStatusCode = HttpStatusCode.NotFound;
-                    break;
-                case Exception ex:
-                    httpStatusCode = HttpStatusCode.BadRequest;
-                    break;
+                    break;                      
             }
 
             context.Response.StatusCode = (int)httpStatusCode;

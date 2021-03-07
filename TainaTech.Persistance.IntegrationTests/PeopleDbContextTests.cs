@@ -6,23 +6,17 @@ using TainaTech.Application.Contracts;
 using TainaTech.Domain.Entities;
 using Xunit;
 
-namespace TainaTech.Persistance.IntegrationTests
+namespace TainaTech.Persistance.UnitTests
 {
     public class PeopleDbContextTests
     {
-        private readonly PeopleDbContext _peopleDbContext;
-        private readonly Mock<ILoggedInUserService> _loggedInUserServiceMock;
-        private readonly string _loggedInUserId;
+        private readonly PeopleDbContext _peopleDbContext;       
 
         public PeopleDbContextTests()
         {
             var dbContextOptions = new DbContextOptionsBuilder<PeopleDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options;
-
-            _loggedInUserId = "00000000-0000-0000-0000-000000000000";
-            _loggedInUserServiceMock = new Mock<ILoggedInUserService>();
-            _loggedInUserServiceMock.Setup(m => m.UserId).Returns(_loggedInUserId);
-
-            _peopleDbContext = new PeopleDbContext(dbContextOptions, _loggedInUserServiceMock.Object);
+                
+            _peopleDbContext = new PeopleDbContext(dbContextOptions);
         }
 
         [Fact]
@@ -33,7 +27,7 @@ namespace TainaTech.Persistance.IntegrationTests
             _peopleDbContext.Persons.Add(person);
             await _peopleDbContext.SaveChangesAsync();
 
-            person.CreatedBy.ShouldBe(_loggedInUserId);
+            person.PersonId.ShouldBe(1);
         }
     }
 }

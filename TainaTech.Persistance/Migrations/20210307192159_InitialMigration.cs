@@ -11,7 +11,8 @@ namespace TainaTech.Persistance.Migrations
                 name: "Persons",
                 columns: table => new
                 {
-                    PersonId = table.Column<long>(type: "bigint", nullable: false),
+                    PersonId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Firstname = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Surname = table.Column<byte[]>(type: "varbinary(50)", maxLength: 50, nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
@@ -31,7 +32,7 @@ namespace TainaTech.Persistance.Migrations
             migrationBuilder.InsertData(
                 table: "Persons",
                 columns: new[] { "PersonId", "CreatedBy", "CreatedDate", "DateOfBirth", "EmailAddress", "Firstname", "Gender", "LastModifiedBy", "LastModifiedDate", "PhoneNumber", "Surname" },
-                values: new object[] { 1L, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1991, 3, 7, 18, 14, 19, 210, DateTimeKind.Local).AddTicks(8991), "Test Email", "Test Firstname", 1, null, null, "Test Phonenumber", new byte[] { 84, 101, 115, 116, 32, 83, 117, 114, 110, 97, 109, 101 } });
+                values: new object[] { 1L, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1991, 3, 7, 19, 21, 59, 280, DateTimeKind.Local).AddTicks(802), "Test Email", "Test Firstname", 1, null, null, "Test Phonenumber", new byte[] { 84, 101, 115, 116, 32, 83, 117, 114, 110, 97, 109, 101 } });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -15,12 +15,7 @@ namespace TainaTech.Persistance
         public PeopleDbContext(DbContextOptions<PeopleDbContext> options) : base(options)
         {
 
-        }
-        public PeopleDbContext(DbContextOptions<PeopleDbContext> options, ILoggedInUserService loggedInUserService)
-            : base(options)
-        {
-            _loggedInUserService = loggedInUserService;
-        }
+        }       
 
         public DbSet<Person> Persons { get; set; }
 
@@ -47,12 +42,10 @@ namespace TainaTech.Persistance
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Entity.CreatedDate = DateTime.Now;
-                        entry.Entity.CreatedBy = _loggedInUserService.UserId;
+                        entry.Entity.CreatedDate = DateTime.Now;                    
                         break;
                     case EntityState.Modified:
-                        entry.Entity.LastModifiedDate = DateTime.Now;
-                        entry.Entity.LastModifiedBy = _loggedInUserService.UserId;
+                        entry.Entity.LastModifiedDate = DateTime.Now;                       
                         break;
                 }
             }

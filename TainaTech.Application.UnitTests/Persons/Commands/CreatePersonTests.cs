@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TainaTech.Application.Contracts.Caching;
 using TainaTech.Application.Contracts.Persistance;
 using TainaTech.Application.Features.Persons.Commands.CreatePerson;
 using TainaTech.Application.Profiles;
@@ -22,7 +23,7 @@ namespace TainaTech.Application.UnitTests.Persons.Commands
         private readonly IMapper _mapper;
         private readonly Mock<IAsyncRepository<Person>> _mockPersonRepository;
         private readonly Mock<ILogger<CreatePersonCommandHandler>> _mockLogger;
-
+        private readonly Mock<ICachedPersonsService> _cacheService;
         public CreatePersonTests()
         {
             _mockPersonRepository = RepositoryMocks.GetPersonRepository();
@@ -33,12 +34,13 @@ namespace TainaTech.Application.UnitTests.Persons.Commands
 
             _mapper = configurationProvider.CreateMapper();
             _mockLogger = new Mock<ILogger<CreatePersonCommandHandler>>();
+            _cacheService = new Mock<ICachedPersonsService>();
         }
 
         [Fact]
         public async Task Handle_ValidPerson_AddedToPersonsRepo()
         {
-            var handler = new CreatePersonCommandHandler(_mapper, _mockPersonRepository.Object, _mockLogger.Object);
+            var handler = new CreatePersonCommandHandler(_mapper, _mockPersonRepository.Object, _mockLogger.Object, _cacheService.Object);
 
             var newPerson = new CreatePersonCommand
             {
@@ -60,7 +62,7 @@ namespace TainaTech.Application.UnitTests.Persons.Commands
         [Fact]
         public async Task Handle_InValidPerson_ShouldReturnValidationErrors()
         {
-            var handler = new CreatePersonCommandHandler(_mapper, _mockPersonRepository.Object, _mockLogger.Object);
+            var handler = new CreatePersonCommandHandler(_mapper, _mockPersonRepository.Object, _mockLogger.Object, _cacheService.Object);
 
             var newPerson = new CreatePersonCommand
             {
@@ -75,7 +77,7 @@ namespace TainaTech.Application.UnitTests.Persons.Commands
         [Fact]
         public async Task Handle_FutureDateOfBirth_ShouldReturnValidationErrors()
         {
-            var handler = new CreatePersonCommandHandler(_mapper, _mockPersonRepository.Object, _mockLogger.Object);
+            var handler = new CreatePersonCommandHandler(_mapper, _mockPersonRepository.Object, _mockLogger.Object, _cacheService.Object);
 
             var newPerson = new CreatePersonCommand
             {

@@ -8,9 +8,6 @@ namespace TainaTech.Persistance.Configurations
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            builder.Property(p => p.PersonId)
-                .HasColumnType("bigint");
-
             builder.Property(p => p.Firstname)
                 .IsRequired()
                 .HasMaxLength(30);

@@ -7,6 +7,6 @@ namespace TainaTech.Application.Features.Persons.Queries.GetPerson
 {
     public class GetPersonDetailsQuery : IRequest<PersonDetailsVm>
     {
-        public int PersonId { get; set; }
+        public long PersonId { get; set; }
     }
 }

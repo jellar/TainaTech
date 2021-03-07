@@ -10,7 +10,7 @@ using TainaTech.Persistance;
 namespace TainaTech.Persistance.Migrations
 {
     [DbContext(typeof(PeopleDbContext))]
-    [Migration("20210307181419_InitialMigration")]
+    [Migration("20210307192159_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,7 +26,7 @@ namespace TainaTech.Persistance.Migrations
                     b.Property<long>("PersonId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(100)
@@ -76,7 +76,7 @@ namespace TainaTech.Persistance.Migrations
                         {
                             PersonId = 1L,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateTime(1991, 3, 7, 18, 14, 19, 210, DateTimeKind.Local).AddTicks(8991),
+                            DateOfBirth = new DateTime(1991, 3, 7, 19, 21, 59, 280, DateTimeKind.Local).AddTicks(802),
                             EmailAddress = "Test Email",
                             Firstname = "Test Firstname",
                             Gender = 1,
