@@ -14,7 +14,6 @@ namespace TainaTech.Persistance
         private readonly ILoggedInUserService _loggedInUserService;
         public PeopleDbContext(DbContextOptions<PeopleDbContext> options) : base(options)
         {
-
         }       
 
         public DbSet<Person> Persons { get; set; }

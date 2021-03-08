@@ -26,6 +26,7 @@ namespace TainaTech.Application.Features.Persons.Commands.UpdatePerson
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _cachedPersonsService = cachedPersonsService ?? throw new ArgumentNullException(nameof(cachedPersonsService));
         }
+
         public async Task<Unit> Handle(UpdatePersonCommand request, CancellationToken cancellationToken)
         {
             var personToUpdate = await _personRepository.GetByIdAsync(request.PersonId);
