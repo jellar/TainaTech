@@ -39,6 +39,7 @@ export class PersonFormComponent implements OnInit{
   }
 
   genderList: any = ["Female", "Male","Unknown"]
+  dateOfBirth: Date;
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.isAddMode = this.route.snapshot.params["mode"] == "create";
@@ -57,6 +58,7 @@ export class PersonFormComponent implements OnInit{
       this.http.get<Person>(this.baseUrl + 'api/person/'+ this.id).subscribe(result => {
         // this.person = result;
         this.form.patchValue(result);
+        this.dateOfBirth = result.dateOfBirth;
       }, error => console.error(error));
 
     }

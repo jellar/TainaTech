@@ -60,7 +60,7 @@
     <div class="form-row">
       <div class="form-group col-4">
         <label>Date of Birth</label>
-        <input type="date" formControlName="dateOfBirth" class="form-control"
+        <input type="date" formControlName="dateOfBirth" class="form-control" [ngModel]="dateOfBirth | date:'yyyy-MM-dd'"
                [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"/>
         <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
           <div *ngIf="f.dateOfBirth.errors.required">Phone number is required</div>
