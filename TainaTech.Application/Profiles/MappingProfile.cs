@@ -4,6 +4,7 @@ using TainaTech.Application.Features.Persons.Commands.UpdatePerson;
 using TainaTech.Application.Features.Persons.Queries.GetPerson;
 using TainaTech.Application.Features.Persons.Queries.GetPersonsList;
 using TainaTech.Domain.Entities;
+using TainaTech.Domain.Enums;
 
 namespace TainaTech.Application.Profiles
 {

@@ -46,7 +46,7 @@ namespace TainaTech.Application.UnitTests.Persons.Commands
             {
                 Firstname = "Test Firstname",
                 Surname = "Test Surname",
-                Gender = Gender.Male,
+                Gender = "Male",
                 EmailAddress = "Test Email",
                 PhoneNumber = "Test Phonenumber",
                 DateOfBirth = DateTime.Now.AddYears(-30)
@@ -83,7 +83,7 @@ namespace TainaTech.Application.UnitTests.Persons.Commands
             {
                 Firstname = "Test Firstname",
                 Surname = "Test Surname",
-                Gender = Gender.Male,
+                Gender = "Male",
                 EmailAddress = "Test Email",
                 PhoneNumber = "Test Phonenumber",
                 DateOfBirth = DateTime.Now.AddDays(1)

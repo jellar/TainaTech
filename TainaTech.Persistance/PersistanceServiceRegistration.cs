@@ -25,7 +25,7 @@ namespace TainaTech.Persistance
             });
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
-
+            services.AddScoped(typeof(IPersonRepository), typeof(PersonRepository));
             return services;
         }
     }

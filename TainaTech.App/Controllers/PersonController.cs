@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TainaTech.Application.Features.Persons.Commands.CreatePerson;
 using TainaTech.Application.Features.Persons.Commands.UpdatePerson;
+using TainaTech.Application.Features.Persons.Queries.GetPagedPersons;
 using TainaTech.Application.Features.Persons.Queries.GetPerson;
 using TainaTech.Application.Features.Persons.Queries.GetPersonsList;
 
@@ -31,6 +32,17 @@ namespace TainaTech.App.Controllers
             return Ok(dtos);
         }
 
+        [HttpGet("/getpagedpeople", Name = "GetPagedPersons")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult<PagedPersonsVm>> GetPagedPersons(string firstname, int page = 1, int size = 10)
+        {
+            var getPagedPersonsQuery = new GetPagedPersonsQuery() { Firstname = firstname ,Page = page, Size = size };
+            var dtos = await _mediator.Send(getPagedPersonsQuery);
+
+            return Ok(dtos);    
+        }
+
         [HttpGet("{id}", Name = "GetPersonById")]
         public async Task<ActionResult<PersonDetailsVm>> GetPersonById(int id)
         {
@@ -38,14 +50,14 @@ namespace TainaTech.App.Controllers
             return Ok(await _mediator.Send(getEventDetailQuery));
         }
 
-        [HttpPost("add", Name = "AddPerson")]
+        [HttpPost(Name = "AddPerson")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreatePersonCommand createPersonCommand)
         {
             var id = await _mediator.Send(createPersonCommand);
             return Ok(id);
         }
 
-        [HttpPut("update", Name = "UpdatePerson")]
+        [HttpPut(Name = "UpdatePerson")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
