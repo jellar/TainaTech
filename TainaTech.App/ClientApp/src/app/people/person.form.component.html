@@ -65,7 +65,7 @@
       <input type="date" formControlName="dateOfBirth" class="form-control" [ngModel]="dateOfBirth | date:'yyyy-MM-dd'"
              [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"/>
       <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
-        <div *ngIf="f.dateOfBirth.errors.required">Phone number is required</div>
+        <div *ngIf="f.dateOfBirth.errors.required">Date of birth is required</div>
       </div>
     </div>
   </div>

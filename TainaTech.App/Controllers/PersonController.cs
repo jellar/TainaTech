@@ -32,7 +32,7 @@ namespace TainaTech.App.Controllers
             return Ok(dtos);
         }
 
-        [HttpGet("/getpagedpeople", Name = "GetPagedPersons")]
+        [HttpGet("getpagedpeople", Name = "GetPagedPersons")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<PagedPersonsVm>> GetPagedPersons(string firstname, int page = 1, int size = 10)

@@ -1,10 +1,9 @@
-﻿import {Component, Inject, OnInit} from "@angular/core";
+﻿import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Person} from "../models/person.model";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AbstractControlOptions, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Observable, throwError} from "rxjs";
-import {catchError} from "rxjs/operators";
+
+import {PersonService} from "../_services/person.service";
 
 @Component({
   selector: 'person-form',
@@ -18,11 +17,10 @@ export class PersonFormComponent implements OnInit {
   submitted = false;
   person: Person = new Person();
   errors: string[];
-  constructor(private http: HttpClient,
-              @Inject('BASE_URL') private baseUrl: string,
-              private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
-              private router: Router) {     }
+              private router: Router,
+              private personService: PersonService) {     }
 
   genderList: any = ["Female", "Male", "Unknown"]
   dateOfBirth: Date;
@@ -43,12 +41,10 @@ export class PersonFormComponent implements OnInit {
     }, formOptions);
 
     if (!this.isAddMode) {
-      this.http.get<Person>(this.baseUrl + 'api/person/' + this.id).subscribe(result => {
-        // this.person = result;
+      this.personService.getById(this.id).subscribe(result => {
         this.form.patchValue(result);
         this.dateOfBirth = result.dateOfBirth;
       }, error => console.error(error));
-
     }
   }
 
@@ -60,7 +56,6 @@ export class PersonFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
@@ -75,35 +70,19 @@ export class PersonFormComponent implements OnInit {
   }
 
   private createUser() {
-    this.sendRequest("POST", this.baseUrl + 'api/person/', this.form.value)
-      .subscribe(() => { this.router.navigateByUrl("/") },
-        (e) => {console.log('errr')}).add(() => this.loading = false)
+    this.personService.create(this.form.value).subscribe(() => { this.router.navigateByUrl("/") },
+      (e) => {console.log('errr')}).add(() => this.loading = false)
   }
 
   private updateUser() {
     let gender: number = this.form.value.gender;
     let personId: number = this.form.value.personId;
     let person = {...this.form.value, personId: personId, gender}
-    this.sendRequest("PUT", this.baseUrl + 'api/person/', person)
+
+    this.personService.update(person)
       .subscribe(() => {
         this.router.navigateByUrl("/")
       },(e) => {this.errors = e.error}).add(() => this.loading = false);
   }
 
-  private sendRequest<T>(verb: string, url: string, body?: Person)
-    : Observable<T> {
-
-    let myHeaders = new HttpHeaders();
-    myHeaders = myHeaders.set("Access-Key", "<secret>");
-    myHeaders = myHeaders.set("Application-Names", ["exampleApp", "proAngular"]);
-
-    return this.http.request<T>(verb, url, {
-      body: body,
-      headers: myHeaders
-    })
-      //.pipe(delay(5000))
-      .pipe(catchError((error: Response) =>
-        throwError(error)))
-        //throwError(`Network Error: ${error.statusText} (${error.status})`)));
-  }
 }

@@ -59,6 +59,7 @@
     <TypeScriptCompile Remove="ClientApp\src\app\Data\data.module.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\Data\person.repository.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\Data\rest.datasource.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_services\person.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

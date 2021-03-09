@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import {PeopleComponent} from "./people/people.component";
 import {PersonFormComponent} from "./people/person.form.component";
 import {NgxPaginationModule} from "ngx-pagination";
+import {PersonService} from "./_services/person.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {PersonRepository} from "../Data/person.repository";
+import {Component, OnInit} from '@angular/core';
 import {Person} from "../models/person.model";
+import {PersonService} from "../_services/person.service";
 
 @Component({
   selector: 'app-people-data',
@@ -15,8 +14,7 @@ export class PeopleComponent implements OnInit {
   name: '';
   pageSizes = [10, 15];
 
-  constructor(private http: HttpClient,
-              @Inject('BASE_URL') private baseUrl: string) {
+  constructor(private personService: PersonService) {
   }
 
   ngOnInit(): void {
@@ -25,13 +23,12 @@ export class PeopleComponent implements OnInit {
 
   retrievePersons() {
     let name = this.name == undefined ? '' : this.name;
-    this.http.get(this.baseUrl + `getpagedpeople?page=${this.page}&size=${this.pageSize}&firstname=${name}`)
+    this.personService.getPagedPersons(name, this.page, this.pageSize)
       .subscribe(
         response => {
           // @ts-ignore
           const {persons, count} = response;
           this.persons = persons;
-          console.log(this.persons);
           this.count = count;
         },
         error => console.error(error));
