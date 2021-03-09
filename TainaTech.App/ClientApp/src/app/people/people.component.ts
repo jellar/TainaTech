@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {PersonRepository} from "../Data/person.repository";
 import {Person} from "../models/person.model";
 
@@ -7,19 +7,16 @@ import {Person} from "../models/person.model";
   selector: 'app-people-data',
   templateUrl: './people.component.html'
 })
-export class PeopleComponent implements OnInit{
+export class PeopleComponent implements OnInit {
   persons: Person[]
   page = 1;
   count = 0;
   pageSize = 10;
   name: '';
   pageSizes = [10, 15];
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
 
-    // http.get<Person[]>(baseUrl + 'api/person/all').subscribe(result => {
-    //   this.people = result;
-    // }, error => console.error(error));
-
+  constructor(private http: HttpClient,
+              @Inject('BASE_URL') private baseUrl: string) {
   }
 
   ngOnInit(): void {
@@ -32,7 +29,7 @@ export class PeopleComponent implements OnInit{
       .subscribe(
         response => {
           // @ts-ignore
-          const { persons, count } = response;
+          const {persons, count} = response;
           this.persons = persons;
           console.log(this.persons);
           this.count = count;
@@ -50,9 +47,6 @@ export class PeopleComponent implements OnInit{
     this.page = 1;
     this.retrievePersons();
   }
-
-
-
 }
 
 

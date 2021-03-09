@@ -6,26 +6,27 @@
 <div class="d-flex">
   <div class="mr-auto p-2">
     <div class="input-group mb-3">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Search by Firstname"
-      [(ngModel)]="name"
-    />
-    <div class="input-group-append">
-      <button
-        class="btn btn-outline-secondary"
-        type="button"
-        (click)="retrievePersons()"
-      >
-        Search
-      </button>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Firstname"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="retrievePersons()"
+        >
+          Search
+        </button>
+      </div>
     </div>
-  </div></div>
+  </div>
   <div class="p-2">
     <button class="btn btn-primary m-1" routerLink="/person/create">
-    Create New Product
-  </button>
+      Create New Product
+    </button>
   </div>
 </div>
 
@@ -42,24 +43,24 @@
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let person of persons | paginate : {
+  <tr *ngFor="let person of persons | paginate : {
                   itemsPerPage: pageSize,
                   currentPage: page,
                   totalItems: count
                 }; ">
-      <td>{{ person.firstname }}</td>
-      <td>{{ person.surname }}</td>
-      <td>{{ person.gender }}</td>
-      <td>{{ person.emailAddress }}</td>
-      <td>{{ person.phoneNumber }}</td>
-      <td>{{ person.dateOfBirth | date }}</td>
-      <td>
-        <button class="btn btn-warning btn-sm"
-                [routerLink]="['/person', 'edit', person.personId]">
-          Edit
-        </button>
-      </td>
-    </tr>
+    <td>{{ person.firstname }}</td>
+    <td>{{ person.surname }}</td>
+    <td>{{ person.gender }}</td>
+    <td>{{ person.emailAddress }}</td>
+    <td>{{ person.phoneNumber }}</td>
+    <td>{{ person.dateOfBirth | date }}</td>
+    <td>
+      <button class="btn btn-warning btn-sm"
+              [routerLink]="['/person', 'edit', person.personId]">
+        Edit
+      </button>
+    </td>
+  </tr>
   </tbody>
 </table>
 

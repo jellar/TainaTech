@@ -5,5 +5,6 @@
               public gender?: number,
               public emailAddress?: string,
               public phoneNumber?: string,
-              public dateOfBirth?: Date  ) { }
+              public dateOfBirth?: Date) {
+  }
 }
