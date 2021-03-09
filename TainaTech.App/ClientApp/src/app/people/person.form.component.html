@@ -8,7 +8,7 @@
       <label>Gender</label>
       <select formControlName="gender" class="form-control"
               [ngClass]="{ 'is-invalid': submitted && form.controls['gender'].errors }">
-        <option disabled>Select Gender</option>
+        <option value="">Select Gender</option>
         <option *ngFor="let g of genderList">{{g}}</option>
       </select>
       <div *ngIf="submitted && form.controls['gender'].errors" class="invalid-feedback">
@@ -55,6 +55,7 @@
              [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"/>
       <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
         <div *ngIf="f.phoneNumber.errors.required">Phone number is required</div>
+        <div *ngIf="f.phoneNumber.errors.pattern">Please, Enter 10 digit Phone Number.</div>
       </div>
     </div>
   </div>
@@ -81,4 +82,6 @@
       Cancel
     </button>
   </div>
+  <span class="text-danger">{{this.errors | json}}</span>
+
 </form>

@@ -56,6 +56,9 @@
     <TypeScriptCompile Remove="ClientApp\src\app\fetch-data\fetch-data.component.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\counter\counter.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\counter\counter.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\Data\data.module.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\Data\person.repository.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\Data\rest.datasource.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

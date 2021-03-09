@@ -2,7 +2,6 @@
 import {ActivatedRoute, Router} from "@angular/router";
 import {Person} from "../models/person.model";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-// import {NgForm} from "@angular/forms";
 import {AbstractControlOptions, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
@@ -13,18 +12,17 @@ import {catchError} from "rxjs/operators";
 })
 export class PersonFormComponent implements OnInit {
   form!: FormGroup;
-  id!: string;
+  id!: number;
   isAddMode!: boolean;
   loading = false;
   submitted = false;
   person: Person = new Person();
-
+  errors: string[];
   constructor(private http: HttpClient,
               @Inject('BASE_URL') private baseUrl: string,
               private formBuilder: FormBuilder,
               private route: ActivatedRoute,
-              private router: Router) {
-  }
+              private router: Router) {     }
 
   genderList: any = ["Female", "Male", "Unknown"]
   dateOfBirth: Date;
@@ -35,11 +33,12 @@ export class PersonFormComponent implements OnInit {
 
     const formOptions: AbstractControlOptions = {};
     this.form = this.formBuilder.group({
+      personId:[],
       firstname: ['', Validators.required],
       surname: ['', Validators.required],
       gender: ['', Validators.required],
       emailAddress: ['', [Validators.required, Validators.email]],
-      phoneNumber: [''],
+      phoneNumber: ['',[Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       dateOfBirth: ['', Validators.required]
     }, formOptions);
 
@@ -77,18 +76,18 @@ export class PersonFormComponent implements OnInit {
 
   private createUser() {
     this.sendRequest("POST", this.baseUrl + 'api/person/', this.form.value)
-      .subscribe(() => {
-        this.router.navigateByUrl("/")
-      }).add(() => this.loading = false)
+      .subscribe(() => { this.router.navigateByUrl("/") },
+        (e) => {console.log('errr')}).add(() => this.loading = false)
   }
 
   private updateUser() {
     let gender: number = this.form.value.gender;
-    let person = {...this.form.value, personId: this.route.snapshot.params['id'], gender}
+    let personId: number = this.form.value.personId;
+    let person = {...this.form.value, personId: personId, gender}
     this.sendRequest("PUT", this.baseUrl + 'api/person/', person)
       .subscribe(() => {
         this.router.navigateByUrl("/")
-      }).add(() => this.loading = false);
+      },(e) => {this.errors = e.error}).add(() => this.loading = false);
   }
 
   private sendRequest<T>(verb: string, url: string, body?: Person)
@@ -104,6 +103,7 @@ export class PersonFormComponent implements OnInit {
     })
       //.pipe(delay(5000))
       .pipe(catchError((error: Response) =>
-        throwError(`Network Error: ${error.statusText} (${error.status})`)));
+        throwError(error)))
+        //throwError(`Network Error: ${error.statusText} (${error.status})`)));
   }
 }
