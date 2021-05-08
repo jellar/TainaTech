@@ -52,7 +52,7 @@
     <td>{{ person.gender }}</td>
     <td>{{ person.emailAddress }}</td>
     <td>{{ person.phoneNumber }}</td>
-    <td>{{ person.dateOfBirth | date }}</td>
+    <td>{{ person.dateOfBirth }}</td>
     <td>
       <button class="btn btn-warning btn-sm"
               [routerLink]="['/person', 'edit', person.personId]">
